@@ -33,3 +33,9 @@ Executed 9 specific lookup tasks to evaluate the strengths and weaknesses of dif
 ## Task Previews
 *(<img width="1917" height="1017" alt="Screenshot 2026-10-12 182625" src="https://github.com/user-attachments/assets/47da8f3e-c490-4466-aabc-f4dd28f76c46" />)*
 
+OrderID	Product	Rep_ID	Units	Price
+J1	Mouse	R1	10	50
+J2	Keyboard	R2	5	150
+F1	Monitor	R1	2	2000
+F2	Mouse	R3	15	50
+<img width="394" height="121" alt="image" src="https://github.com/user-attachments/assets/b3be9093-3955-4a63-b056-294e23ea8b67" />
