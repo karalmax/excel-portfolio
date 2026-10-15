@@ -33,4 +33,37 @@ Executed 9 specific lookup tasks to evaluate the strengths and weaknesses of dif
 ## Task Previews
 *(<img width="1917" height="1017" alt="Screenshot 2026-10-12 182625" src="https://github.com/user-attachments/assets/47da8f3e-c490-4466-aabc-f4dd28f76c46" />)*
 
+# Data Cleaning & Power Query (ETL Pipeline)
 
+## 📌 Overview
+This module demonstrates end-to-end data sanitization using Excel's native cleaning tools and automated ETL (Extract, Transform, Load) pipelines using **Power Query**.
+
+---
+
+## 🛠️ Part 1: Native Data Cleaning & Validation
+
+* **Data Validation & Auditing:** Restricted `Region` inputs via list validation and `Units` to positive decimals (`> 0`). Audited legacy anomalies (`"hi"`, `-5`) using **Circle Invalid Data**.
+* **Visual Profiling (Data Bars):** Applied Conditional Formatting Data Bars on `Revenue` to visually identify high-performing records and outliers.
+* **Pattern Extraction (Flash Fill):** Extracted 3-digit area codes from formatted phone strings (`(044) 234-5678`) using Flash Fill (`Ctrl + E`), enforcing text pre-formatting (`'044`) to preserve leading zeros.
+* **Deduplication:** Flagged duplicate employee records using structured `COUNTIFS([Emp ID], [@Emp ID])` logic prior to executing `Remove Duplicates`.
+* **Type Coercion:** Converted text-formatted numerics (`"80"`) into true numeric values.
+
+## Task Previews
+*(<img width="842" height="195" alt="image" src="https://github.com/user-attachments/assets/f6d8f6ef-6aa0-45b3-be5d-8d32beea0380" />)*
+
+---
+
+## ⚙️ Part 2: Power Query (M-Engine) Transformations
+
+### 1. Merge Queries (Left Outer Join )
+*(<img width="596" height="73" alt="image" src="https://github.com/user-attachments/assets/25b66612-ba50-4a83-9e7d-9c7c66299e85" />)*
+
+---
+
+### 2. Append Queries, Custom Column & Refresh (Tasks 7, 9, 10)
+*(<img width="486" height="145" alt="image" src="https://github.com/user-attachments/assets/43dfb3c4-fe9a-4ad9-a5b9-2ac6d6f9ce1c" />)*
+
+---
+
+### 3. Unpivot Columns - Wide to Tall Normalization (Task 8)
+*(<img width="242" height="169" alt="image" src="https://github.com/user-attachments/assets/3e63aa12-b209-4b25-b082-209d6ed8a273" />)*
