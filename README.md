@@ -101,4 +101,4 @@ This module demonstrates rapid multidimensional data aggregation, custom metric 
 ---
 
 ### 2. Interactive Analytics & Combo Chart (`Pivots` Tab)
-*(Paste your `Pivots` dashboard screenshot here)*
+*(<img width="1917" height="991" alt="Screenshot 2026-11-06 235024" src="https://github.com/user-attachments/assets/ae7a66fc-5fcb-4726-82ca-1780aaec3c89" />)*
