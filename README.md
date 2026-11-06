@@ -67,3 +67,38 @@ This module demonstrates end-to-end data sanitization using Excel's native clean
 
 ### 3. Unpivot Columns - Wide to Tall Normalization (Task 8)
 *(<img width="242" height="169" alt="image" src="https://github.com/user-attachments/assets/3e63aa12-b209-4b25-b082-209d6ed8a273" />)*
+
+# Pivot Tables & Executive Charting (Interactive Analytics)
+
+## 📌 Overview
+This module demonstrates rapid multidimensional data aggregation, custom metric creation, and executive dashboard design using **Excel Pivot Tables**, **Slicers/Timelines**, and **Combo Charts**.
+
+---
+
+## 🛠️ Part 1: Pivot Table Engine & Custom Metrics
+
+- **Data Type Auditing & Aggregation:** Diagnosed and resolved text-formatted numeric anomalies (`'600`) in the `Raw_Sales` source table that forced `Revenue` aggregations to default to `COUNT` (`9`) instead of `SUM` (`7,900`).
+- **Time-Series Matrix (Region × Month):** Built cross-tabulated revenue breakdowns utilizing automatic date hierarchies (`Jan`–`Apr`).
+- **Relative Contribution & Cumulative Tracking:** Configured `Show Values As` rules to compute rep-level revenue share (`% of Grand Total`) and monthly cumulative performance (`Running Total In`).
+- **Calculated Fields (Profitability):** Engineered an in-memory `Margin` metric (`=(Revenue - Cost) / Revenue`) directly within the Pivot cache to evaluate true weighted profitability (`43%`–`44%`) without bloating the source table.
+- **Stable Model Lookups (`GETPIVOTDATA`):** Extracted dynamic summary KPIs (`1,700` for `Arun`) using metadata-driven `GETPIVOTDATA` references rather than fragile cell coordinates.
+
+---
+
+## 📊 Part 2: Interactive Visuals & Dynamic Refresh
+
+- **Multi-Pivot Slicers & Timelines:** Deployed interactive `Region` Slicers and `Date` Timelines linked across all worksheet Pivot Tables via **Report Connections** for synchronized filtering.
+- **Dual-Axis Combo Charting:** Visualized monthly performance by pairing `Sum of Revenue` (Clustered Columns) with `Average of OrderValue` / AOV (Line on a **Secondary Axis**) to compare volume against deal size.
+- **Dynamic Source Expansion (`Refresh All`):** Appended new transaction records (`OrderID 110`, `Revenue 2000`) to the structured `Raw_Sales` Excel Table (`Ctrl + T`) and executed `Refresh All` (`Ctrl + Alt + F5`), automatically scaling Grand Total revenue from `7,900` to `9,900` across all linked tables and charts.
+
+---
+
+## 📸 Task Previews
+
+### 1. Structured Source Data (`Raw_Sales` Tab)
+*(<img width="944" height="265" alt="image" src="https://github.com/user-attachments/assets/c5369838-8c6d-4daf-8b16-0067404db071" />)*
+
+---
+
+### 2. Interactive Analytics & Combo Chart (`Pivots` Tab)
+*(Paste your `Pivots` dashboard screenshot here)*
