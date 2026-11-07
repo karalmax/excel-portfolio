@@ -98,6 +98,51 @@ This module demonstrates rapid multidimensional data aggregation, custom metric 
 ### 1. Structured Source Data (`Raw_Sales` Tab)
 *(<img width="944" height="265" alt="image" src="https://github.com/user-attachments/assets/c5369838-8c6d-4daf-8b16-0067404db071" />)*
 
+# Retail Sales Performance & Profitability Pipeline (End-to-End Analytics)
+
+## 📌 Overview
+This capstone project demonstrates an end-to-end retail analytics workflow processing **10,500+ multi-month POS transactions** using **Power Query (ETL)**, **Dynamic Array & Lookup Functions (`XLOOKUP`, `INDEX+MATCH`)**, **Pivot Table Data Modeling**, and an **Interactive Executive Dashboard**.
+
+---
+
+## ⚙️ Part 1: Automated ETL & Data Hygiene (Power Query + Native Cleaning)
+
+- **Multi-File Ingestion (Append Queries):** Consolidated 3 monthly regional CSV exports (`Jan`–`Mar 2026`, `~10,545` raw records) into a unified staging pipeline via Power Query.
+- **String Sanitization & Type Coercion:** Stripped leading/trailing whitespace and standardized mixed-case customer names (`Trim` + `Capitalize Each Word`). Converted text-formatted unit quantities (`'12`) into true numeric types and imputed missing discount nulls (`0%`).
+- **Deduplication (`COUNTIFS` Audit):** Flagged and eliminated `45` duplicate POS `Order_ID` records across monthly exports prior to modeling, retaining `10,500` unique transactions.
+- **Outlier Remediation:** Isolated impossible negative order quantities (`-5`) using Conditional Formatting rules and normalized unit volumes via `=ABS(VALUE([@Units]))`.
+
+---
+
+## 🔍 Part 2: Dimensional Enrichment & In-Memory Modeling
+
+- **Fault-Tolerant Lookups (`XLOOKUP`):** Enriched transaction rows with `Product_Name`, `Category`, `Unit_Price`, and `Unit_Cost` from `DimProducts`, implementing `"Unmapped SKU"` fallback handling to catch legacy `P999` codes without breaking downstream aggregations.
+- **Territory Mapping (`INDEX + MATCH`):** Assigned sales representatives (`Rep_Name`) and regional territories (`East`, `North`, `South`, `West`) across `10,500` rows.
+- **Tiered Commission Engine:** Applied approximate-match `XLOOKUP` (`match_mode = -1`) against `DimTiers` to dynamically assign commission brackets (`2%` Bronze to `12%` Platinum) based on net order revenue.
+- **Calculated Pivot Metrics:** Engineered an in-memory `Margin_Pct` calculated field (`=(Revenue - Total_Cost) / Revenue`) inside the Pivot cache, establishing a portfolio-wide gross margin of **42%**.
+
+---
+
+## 📊 Part 3: Executive Dashboard & Interactive Reporting
+
+- **Dynamic KPI Header (`GETPIVOTDATA`):** Engineered 6 live summary cards tracking **Total Revenue** (`₹8.26 Cr`), **Total Orders** (`10,500`), **Average Order Value / AOV** (`₹7,867`), **Total Units Sold** (`78,803`), **Gross Margin** (`42%`), and **MoM Growth**.
+- **Insight-Driven Visualizations:**
+  1. *Monthly Revenue vs. AOV Trend:* Dual-axis Combo Chart pairing monthly revenue bars with an AOV trendline on the secondary axis.
+  2. *Regional Performance:* 2D Horizontal Clustered Bar chart highlighting **West** and **South** as top revenue territories.
+  3. *Monthly Category Revenue Mix:* 100% Stacked Column chart tracking category contribution over Q1.
+- **Synchronized Slicers & Timelines:** Connected `Category` Slicers, `Region` Slicers, and an `Order_Date` Timeline across all underlying Pivot Tables via **Report Connections**.
+
+---
+
+## 📸 Project Previews
+
+### 1. Interactive Executive Dashboard (`Dashboard` Tab)
+*(<img width="1917" height="1015" alt="Screenshot 2026-11-07 200134" src="https://github.com/user-attachments/assets/2a668f76-8acb-494c-b72f-65c71d50797a" />)*
+
+---
+
+### 2. Enriched Fact Table & Data Cleaning Audit (`Fact_Sales_Cleaned` & `Cleaning_Log` Tabs)
+*(<img width="1119" height="445" alt="image" src="https://github.com/user-attachments/assets/d1072a01-f199-462a-beb4-0128e9ecb11d" />)*
 ---
 
 ### 2. Interactive Analytics & Combo Chart (`Pivots` Tab)
